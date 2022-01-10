@@ -10,47 +10,47 @@ namespace BookCrossTest
         public void PublishAll()
         {
             Book toTest = new Book();
-            toTest.Publish("Л. Н. Толстой", "Анна Каренина", "1877");
-            Assert.Equals(toTest.GetAuthor(), "Л. Н. Толстой");
-            Assert.Equals(toTest.GetName(), "Анна Каренина");
-            Assert.Equals(toTest.GetYear(), "1877");
+            toTest.Publish(1, "Л. Н. Толстой", "Анна Каренина", "1877");
+            Assert.AreEqual(toTest.GetAuthor(), "Л. Н. Толстой");
+            Assert.AreEqual(toTest.GetName(), "Анна Каренина");
+            Assert.AreEqual(toTest.GetYear(), "1877");
         }
 
         [Test]
         public void PublishNoYear()
         {
             Book toTest = new Book();
-            toTest.Publish("Л. Н. Толстой", "Анна Каренина", "");
-            Assert.Equals(toTest.GetAuthor(), "Л. Н. Толстой");
-            Assert.Equals(toTest.GetName(), "Анна Каренина");
-            Assert.Equals(toTest.GetYear(), "");
+            toTest.Publish(1, "Л. Н. Толстой", "Анна Каренина", "");
+            Assert.AreEqual(toTest.GetAuthor(), "Л. Н. Толстой");
+            Assert.AreEqual(toTest.GetName(), "Анна Каренина");
+            Assert.AreEqual(toTest.GetYear(), "");
         }
 
         [Test]
         public void PublishNoAuthor()
         {
             Book toTest = new Book();
-            toTest.Publish("Л. Н. Толстой", "", "");
-            Assert.Equals(toTest.GetAuthor(), "");
-            Assert.Equals(toTest.GetName(), "Анна Каренина");
-            Assert.Equals(toTest.GetYear(), "1877");
+            toTest.Publish(1, "", "Анна Каренина", "1877");
+            Assert.AreEqual(toTest.GetAuthor(), "");
+            Assert.AreEqual(toTest.GetName(), "Анна Каренина");
+            Assert.AreEqual(toTest.GetYear(), "1877");
         }
 
         [Test]
         public void PublishOnlyName()
         {
             Book toTest = new Book();
-            toTest.Publish("", "Анна Каренина", "");
-            Assert.Equals(toTest.GetAuthor(), "");
-            Assert.Equals(toTest.GetName(), "Анна Каренина");
-            Assert.Equals(toTest.GetYear(), "");
+            toTest.Publish(1, "", "Анна Каренина", "");
+            Assert.AreEqual(toTest.GetAuthor(), "");
+            Assert.AreEqual(toTest.GetName(), "Анна Каренина");
+            Assert.AreEqual(toTest.GetYear(), "");
         }
 
         [Test]
         public void GetStatusTrue()
         {
             Book toTest = new Book();
-            toTest.Publish("Л. Н. Толстой", "Анна Каренина", "1877");
+            toTest.Publish(1, "Л. Н. Толстой", "Анна Каренина", "1877");
             toTest.Take(1);
             Assert.IsTrue(toTest.GetStatus());
         }
@@ -58,7 +58,7 @@ namespace BookCrossTest
         public void GetStatusFalse()
         {
             Book toTest = new Book();
-            toTest.Publish("Л. Н. Толстой", "Анна Каренина", "1877");
+            toTest.Publish(1, "Л. Н. Толстой", "Анна Каренина", "1877");
             Assert.IsFalse(toTest.GetStatus());
         }
 
@@ -66,16 +66,16 @@ namespace BookCrossTest
         public void GetReaderTrue()
         {
             Book toTest = new Book();
-            toTest.Publish("Л. Н. Толстой", "Анна Каренина", "1877");
+            toTest.Publish(1, "Л. Н. Толстой", "Анна Каренина", "1877");
             toTest.Take(1);
-            Assert.Equals(toTest.GetIdReader(), 1);
+            Assert.AreEqual(toTest.GetIdReader(), 1);
         }
 
         public void GetReaderFalse()
         {
             Book toTest = new Book();
-            toTest.Publish("Л. Н. Толстой", "Анна Каренина", "1877");
-            Assert.Equals(toTest.GetIdReader(), -1);
+            toTest.Publish(1, "Л. Н. Толстой", "Анна Каренина", "1877");
+            Assert.AreEqual(toTest.GetIdReader(), -1);
         }
 
         [Test]
@@ -83,9 +83,9 @@ namespace BookCrossTest
         {
             Book toTest = new Book();
             Book toTest1 = new Book();
-            toTest.Publish("Л. Н. Толстой", "Анна Каренина", "1877");
-            toTest1.Publish("Л. Н. Толстой", "Анна Каренина", "1877");
-            Assert.IsTrue(toTest.Compare());
+            toTest.Publish(1, "Л. Н. Толстой", "Анна Каренина", "1877");
+            toTest1.Publish(2, "Л. Н. Толстой", "Анна Каренина", "1877");
+            Assert.IsTrue(toTest.Compare(toTest1));
         }
 
         [Test]
@@ -93,9 +93,9 @@ namespace BookCrossTest
         {
             Book toTest = new Book();
             Book toTest1 = new Book();
-            toTest.Publish("Л. Н. Толстой", "Анна Каренина", "1877");
-            toTest1.Publish("", "Анна Каренина", "1877");
-            Assert.IsFalse(toTest.Compare());
+            toTest.Publish(1, "Л. Н. Толстой", "Анна Каренина", "1877");
+            toTest1.Publish(2, "", "Анна Каренина", "1877");
+            Assert.IsFalse(toTest.Compare(toTest1));
         }
 
         [Test]
@@ -103,9 +103,9 @@ namespace BookCrossTest
         {
             Book toTest = new Book();
             Book toTest1 = new Book();
-            toTest.Publish("Л. Н. Толстой", "Анна Каренина", "1877");
-            toTest1.Publish("Л. Н. Толстой", "", "1877");
-            Assert.IsFalse(toTest.Compare());
+            toTest.Publish(1, "Л. Н. Толстой", "Анна Каренина", "1877");
+            toTest1.Publish(2, "Л. Н. Толстой", "", "1877");
+            Assert.IsFalse(toTest.Compare(toTest1));
         }
 
         [Test]
@@ -113,9 +113,9 @@ namespace BookCrossTest
         {
             Book toTest = new Book();
             Book toTest1 = new Book();
-            toTest.Publish("Л. Н. Толстой", "Анна Каренина", "1877");
-            toTest1.Publish("Л. Н. Толстой", "Анна Каренина", "");
-            Assert.IsFalse(toTest.Compare());
+            toTest.Publish(1, "Л. Н. Толстой", "Анна Каренина", "1877");
+            toTest1.Publish(2, "Л. Н. Толстой", "Анна Каренина", "");
+            Assert.IsFalse(toTest.Compare(toTest1));
         }
 
         [Test]
@@ -123,9 +123,9 @@ namespace BookCrossTest
         {
             Book toTest = new Book();
             Book toTest1 = new Book();
-            toTest.Publish("Л. Н. Толстой", "Анна Каренина", "1877");
-            toTest1.Publish("", "Анна Каренина", "");
-            Assert.IsFalse(toTest.Compare());
+            toTest.Publish(1, "Л. Н. Толстой", "Анна Каренина", "1877");
+            toTest1.Publish(2, "", "Анна Каренина", "");
+            Assert.IsFalse(toTest.Compare(toTest1));
         }
 
         [Test]
@@ -133,9 +133,9 @@ namespace BookCrossTest
         {
             Book toTest = new Book();
             Book toTest1 = new Book();
-            toTest.Publish("Л. Н. Толстой", "Анна Каренина", "1877");
-            toTest1.Publish("Л. Н. Толстой", "", "");
-            Assert.IsFalse(toTest.Compare());
+            toTest.Publish(1, "Л. Н. Толстой", "Анна Каренина", "1877");
+            toTest1.Publish(2, "Л. Н. Толстой", "", "");
+            Assert.IsFalse(toTest.Compare(toTest1));
         }
 
         [Test]
@@ -143,9 +143,9 @@ namespace BookCrossTest
         {
             Book toTest = new Book();
             Book toTest1 = new Book();
-            toTest.Publish("Л. Н. Толстой", "Анна Каренина", "1877");
-            toTest1.Publish("", "", "1877");
-            Assert.IsFalse(toTest.Compare());
+            toTest.Publish(1, "Л. Н. Толстой", "Анна Каренина", "1877");
+            toTest1.Publish(2, "", "", "1877");
+            Assert.IsFalse(toTest.Compare(toTest1));
         }
     }
 }

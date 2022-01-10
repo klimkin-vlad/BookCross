@@ -1,43 +1,67 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BookCross
 {
     public class Book
     {
-        string id;
+        int id;
         string author;
         string name;
-        int year;
-        int[] allIdPlaces;
+        string year;
+        List<int> allIdPlaces;
         int idReader;
 
-        public void Publish(string myName, string myAuthor, string year)
+        public void Publish(int myId, string myAuthor, string myName, string myYear)
         {
-            
+            id = myId;
+            author = myAuthor;
+            name = myName;
+            year = myYear;
+            allIdPlaces = new List<int>();
+            idReader = -1;
         }
 
         public bool GetStatus()
         {
-            return false;
+            if (idReader >= 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public int GetIdReader()
         {
-            return -1;
+            return idReader;
         }
 
         public void Take(int newId)
         {
-
+            idReader = newId;
         }
 
-        public bool Compare()
+        public bool Compare(Book toCompare)
         {
-            return false;
+            if (toCompare.GetName() != GetName())
+            {
+                return false;
+            }
+            else if (toCompare.GetAuthor() != GetAuthor())
+            {
+                return false;
+            }
+            else if (toCompare.GetYear() != GetYear())
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
 
         public string GetAuthor()
