@@ -54,6 +54,11 @@ namespace BookCross
             return allBooks[index - 1].GetYear();
         }
 
+        public int Count()
+        {
+            return allBooks.Count;
+        }
+
         public List<string> GetAll(int index)
         {
             List<string> dataBook = new List<string>();
