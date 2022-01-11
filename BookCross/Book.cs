@@ -5,16 +5,14 @@ namespace BookCross
 {
     public class Book
     {
-        int id;
         string author;
         string name;
         string year;
         List<int> allIdPlaces;
         int idReader;
 
-        public void Publish(int myId, string myAuthor, string myName, string myYear)
+        public void Publish(string myAuthor, string myName, string myYear)
         {
-            id = myId;
             author = myAuthor;
             name = myName;
             year = myYear;
@@ -39,9 +37,10 @@ namespace BookCross
             return idReader;
         }
 
-        public void Take(int newId)
+        public void Take(int newId, int idPlace)
         {
             idReader = newId;
+            allIdPlaces.Add(idPlace);
         }
 
         public bool Compare(Book toCompare)
