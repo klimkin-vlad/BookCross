@@ -16,3 +16,7 @@ C:\Users\Владислав\BookCross\BookCross\obj\Debug\BookCross.csproj.CoreC
 C:\Users\Владислав\BookCross\BookCross\obj\Debug\BookCross.exe
 C:\Users\Владислав\BookCross\BookCross\obj\Debug\BookCross.pdb
 C:\Users\Владислав\BookCross\BookCross\obj\Debug\BookCross.csprojResolveAssemblyReference.cache
+C:\Users\Владислав\BookCross\BookCross\obj\Debug\BookCross.Form2.resources
+C:\Users\Владислав\BookCross\BookCross\obj\Debug\BookCross.Form3.resources
+C:\Users\Владислав\BookCross\BookCross\obj\Debug\BookCross.Form4.resources
+C:\Users\Владислав\BookCross\BookCross\obj\Debug\BookCross.Form5.resources
