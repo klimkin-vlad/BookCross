@@ -29,9 +29,9 @@ namespace BookCross
             return arrival;
         }
 
-        public bool Compare(int myId)
+        public bool Compare(Place toCompare)
         {
-            if (id == myId)
+            if ((departure == toCompare.departure) && (arrival == toCompare.arrival))
             {
                 return true;
             }

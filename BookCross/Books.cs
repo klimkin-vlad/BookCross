@@ -35,8 +35,9 @@ namespace BookCross
 
         public bool Compare(int first, int second)
         {
+            Book compared = allBooks[first - 1];
             Book toCompare = allBooks[second - 1];
-            return allBooks[first - 1].Compare(toCompare);
+            return compared.Compare(toCompare);
         }
 
         public string GetAuthor(int index)

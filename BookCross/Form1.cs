@@ -12,9 +12,9 @@ namespace BookCross
             InitializeComponent();
         }
 
-        List<Reader> allReaders;
+        Readers allReaders;
         Books allBooks;
-        List<Place> allPlaces;
+        Places allPlaces;
         int mode = 0;
 
         public void Prepare(int chooser)
@@ -49,13 +49,13 @@ namespace BookCross
             Prepare(1);
             button4.Enabled = true;
             List<string> toShow;
-            int index = 0;
+            int index = allReaders.Count();
             AddColumns(new List<string> { "№", "ФИО" });
-            foreach (Reader current in allReaders)
+            while (index > 1)
             {
-                toShow = new List<string> { current.GetName() };
+                toShow = new List<string> { allReaders.GetName(index) };
                 SetValues(index, toShow);
-                index += 1;
+                index -= 1;
             }
             button5.Enabled = false;
         }
@@ -79,7 +79,7 @@ namespace BookCross
                     toShow.Add("Свободна");
                 }
                 SetValues(index, toShow);
-                index += 1;
+                index -= 1;
             }
         }
 
@@ -88,22 +88,22 @@ namespace BookCross
             Prepare(3);
             button4.Enabled = true;
             List<string> toShow;
-            int index = 0;
+            int index = allPlaces.Count();
             AddColumns(new List<string> { "№", "Место отправления", "Место прибытия" });
-            foreach (Place current in allPlaces)
+            while (index > 1)
             {
                 toShow = new List<string>();
                 SetValues(index, toShow);
-                index += 1;
+                index -= 1;
             }
             button5.Enabled = false;
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            allReaders = new List<Reader>();
+            allReaders = new Readers();
             allBooks = new Books();
-            allPlaces = new List<Place>();
+            allPlaces = new Places();
         }
 
         public void AddReader()
@@ -113,9 +113,7 @@ namespace BookCross
             if (dialog.ShowDialog() == DialogResult.OK)
             {
                 List<string> dataReader = dialog.GetTextboxes();
-                Reader current = new Reader();
-                current.Add(allReaders.Count(), dataReader[0]);
-                allReaders.Add(current);
+                allReaders.Add(allReaders.Count(), dataReader[0]);
             }
         }
 
@@ -137,9 +135,7 @@ namespace BookCross
             if (dialog.ShowDialog() == DialogResult.OK)
             {
                 List<string> dataPlace = dialog.GetTextboxes();
-                Place current = new Place();
-                current.Add(allReaders.Count(), dataPlace[0], dataPlace[1]);
-                allPlaces.Add(current);
+                allPlaces.Add(allReaders.Count(), dataPlace[0], dataPlace[1]);
             }
         }
 
@@ -149,8 +145,8 @@ namespace BookCross
             if (mode == 1)
             {
                 AddReader();
-                toShow.Add(allReaders[allReaders.Count - 1].GetName());
-                SetValues(allReaders.Count - 1, toShow);
+                toShow.Add(allReaders.GetName(allReaders.Count()));
+                SetValues(allReaders.Count() - 1, toShow);
             }
             else if (mode == 2)
             {
@@ -163,9 +159,9 @@ namespace BookCross
             else if (mode == 3)
             {
                 AddPlace();
-                toShow.Add(allPlaces[allPlaces.Count - 1].GetDeparture());
-                toShow.Add(allPlaces[allPlaces.Count - 1].GetArrival());
-                SetValues(allPlaces.Count - 1, toShow);
+                toShow.Add(allPlaces.GetDeparture(allPlaces.Count()));
+                toShow.Add(allPlaces.GetArrival(allPlaces.Count()));
+                SetValues(allPlaces.Count() - 1, toShow);
             }
         }
 
@@ -176,15 +172,17 @@ namespace BookCross
             string year = allBooks.GetYear(allBooks.Count() - 1);
             Form5 dialog = new Form5(author, name, year);
             dialog.Owner = this;
-            int index = 1;
-            foreach (Reader current in allReaders)
+            int index = allReaders.Count();
+            while (index > 1)
             {
-                dialog.AddReaders(index, current.GetName());
+                dialog.AddReaders(index, allReaders.GetName(index));
+                index -= 1;
             }
-            index = 1;
-            foreach (Place current in allPlaces)
+            index = allPlaces.Count();
+            while (index > 1)
             {
-                dialog.AddPlaces(index, current.GetDeparture(), current.GetArrival());
+                dialog.AddPlaces(index, allPlaces.GetDeparture(index), allPlaces.GetArrival(index));
+                index -= 1;
             }
         }
 

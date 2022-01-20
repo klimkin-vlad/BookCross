@@ -16,9 +16,9 @@
             return name;
         }
 
-        public bool Compare(int myId)
+        public bool Compare(Reader toCompare)
         {
-            if (id == myId)
+            if (name == toCompare.name)
             {
                 return true;
             }

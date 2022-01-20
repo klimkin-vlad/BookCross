@@ -58,6 +58,8 @@
     <Compile Include="BooksTest.cs" />
     <Compile Include="ReaderTest.cs" />
     <Compile Include="PlaceTest.cs" />
+    <Compile Include="PlacesTest.cs" />
+    <Compile Include="ReadersTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config">

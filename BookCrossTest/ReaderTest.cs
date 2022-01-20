@@ -19,7 +19,7 @@ namespace BookCrossTest
         {
             Reader person = new Reader();
             person.Add(1, "Климкин Владислав Юрьевич");
-            Assert.IsTrue(person.Compare(1));
+            Assert.IsTrue(person.Compare(person));
         }
 
         [Test]
@@ -29,7 +29,7 @@ namespace BookCrossTest
             person.Add(1, "Климкин Владислав Юрьевич");
             Reader person1 = new Reader();
             person1.Add(2, "Климкин Влад Юрьевич");
-            Assert.IsFalse(person.Compare(2));
+            Assert.IsFalse(person.Compare(person1));
         }
     }
 }
