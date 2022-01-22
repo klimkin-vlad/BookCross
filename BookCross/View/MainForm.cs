@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Windows.Forms;
 
 namespace BookCross
@@ -14,37 +15,9 @@ namespace BookCross
 
         MainPresenter presenter;
 
-        public void Clear()
+        public void SetTableValues(DataTable sourceTable)
         {
-            mainTable.Rows.Clear();
-            mainTable.Columns.Clear();
-        }
-
-        public void SetHeaders(List<string> headers)
-        {
-            foreach (string column in headers)
-            {
-                mainTable.Columns.Add(column, column);
-            }
-        }
-
-        public void SetTableValues(List<List<string>> items)
-        {
-            DataGridViewRow row;
-            DataGridViewCell cell;
-            foreach (List<string> item in items)
-            {
-                row = new DataGridViewRow();
-                foreach (string property in item)
-                {
-                    cell = new DataGridViewTextBoxCell
-                    {
-                        Value = property
-                    };
-                    row.Cells.Add(cell);
-                }
-                mainTable.Rows.Add(row);
-            }
+            mainTable.DataSource = sourceTable;
         }
 
         public List<string> GetCurrentRow()

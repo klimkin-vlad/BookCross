@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Data;
 
 namespace BookCross
 {
@@ -8,6 +9,7 @@ namespace BookCross
         Readers _allReaders;
         Books _allBooks;
         Places _allPlaces;
+        DataTable table;
 
         int chooser;
 
@@ -87,9 +89,29 @@ namespace BookCross
 
         public void FillTable(List<List<string>> rows, List<string> headers)
         {
-            _tableForm.Clear();
-            _tableForm.SetHeaders(headers);
-            _tableForm.SetTableValues(rows);
+            SetHeaders(headers);
+            SetTableValues(rows);
+            _tableForm.SetTableValues(table);
+        }
+
+        public void SetHeaders(List<string> headers)
+        {
+            table = new DataTable();
+            foreach (string column in headers)
+            {
+                table.Columns.Add(column);
+            }
+        }
+
+        public void SetTableValues(List<List<string>> items)
+        {
+            DataRow row;
+            foreach (List<string> item in items)
+            {
+                row = table.NewRow();
+                row.ItemArray = item.ToArray();
+                table.Rows.Add(row);
+            }
         }
 
         public void Add(int dialog)

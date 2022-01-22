@@ -19,4 +19,3 @@ C:\Users\Владислав\BookCross\BookCross\obj\Debug\BookCross.BookForm.res
 C:\Users\Владислав\BookCross\BookCross\obj\Debug\BookCross.MainForm.resources
 C:\Users\Владислав\BookCross\BookCross\obj\Debug\BookCross.ReaderForm.resources
 C:\Users\Владислав\BookCross\BookCross\obj\Debug\BookCross.TakeBookForm.resources
-C:\Users\Владислав\BookCross\BookCross\obj\Debug\BookCross.csprojResolveAssemblyReference.cache
