@@ -53,7 +53,7 @@
             this.authorTextBox.Name = "authorTextBox";
             this.authorTextBox.Size = new System.Drawing.Size(100, 20);
             this.authorTextBox.TabIndex = 1;
-            this.authorTextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.authorTextBox.TextChanged += new System.EventHandler(this.AnyTextBox_TextChanged);
             // 
             // nameLabel
             // 
@@ -70,7 +70,7 @@
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(100, 20);
             this.nameTextBox.TabIndex = 3;
-            this.nameTextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.nameTextBox.TextChanged += new System.EventHandler(this.AnyTextBox_TextChanged);
             // 
             // yearLabel
             // 
@@ -87,7 +87,7 @@
             this.yearTextBox.Name = "yearTextBox";
             this.yearTextBox.Size = new System.Drawing.Size(100, 20);
             this.yearTextBox.TabIndex = 5;
-            this.yearTextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.yearTextBox.TextChanged += new System.EventHandler(this.AnyTextBox_TextChanged);
             // 
             // okButton
             // 

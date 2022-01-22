@@ -37,18 +37,6 @@ namespace BookCross
             }
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            if ((departureTextBox.Text != "") && (arrivalTextBox.Text != ""))
-            {
-                okButton.Enabled = true;
-            }
-            else
-            {
-                okButton.Enabled = false;
-            }
-        }
-
         private void OkButton_Click(object sender, EventArgs e)
         {
             presenter.Add();
@@ -58,6 +46,18 @@ namespace BookCross
         private void CancelButton_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void AnyTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if ((departureTextBox.Text != "") && (arrivalTextBox.Text != ""))
+            {
+                okButton.Enabled = true;
+            }
+            else
+            {
+                okButton.Enabled = false;
+            }
         }
     }
 }

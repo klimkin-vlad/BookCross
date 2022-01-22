@@ -65,7 +65,7 @@
             this.arrivalTextBox.Name = "arrivalTextBox";
             this.arrivalTextBox.Size = new System.Drawing.Size(100, 20);
             this.arrivalTextBox.TabIndex = 11;
-            this.arrivalTextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.arrivalTextBox.TextChanged += new System.EventHandler(this.AnyTextBox_TextChanged);
             // 
             // arrivalLabel
             // 
@@ -82,7 +82,7 @@
             this.departureTextBox.Name = "departureTextBox";
             this.departureTextBox.Size = new System.Drawing.Size(100, 20);
             this.departureTextBox.TabIndex = 9;
-            this.departureTextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.departureTextBox.TextChanged += new System.EventHandler(this.AnyTextBox_TextChanged);
             // 
             // departureLabel
             // 

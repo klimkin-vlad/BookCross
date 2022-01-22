@@ -25,7 +25,18 @@ namespace BookCross
             }
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void OkButton_Click(object sender, EventArgs e)
+        {
+            presenter.Add();
+            Close();
+        }
+
+        private void CancelButton_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void anyTextBox_TextChanged(object sender, EventArgs e)
         {
             if (nameTextBox.Text != "")
             {
@@ -35,17 +46,6 @@ namespace BookCross
             {
                 okButton.Enabled = false;
             }
-        }
-
-        private void okButton_Click(object sender, EventArgs e)
-        {
-            presenter.Add();
-            Close();
-        }
-
-        private void cancelButton_Click(object sender, EventArgs e)
-        {
-            Close();
         }
     }
 }

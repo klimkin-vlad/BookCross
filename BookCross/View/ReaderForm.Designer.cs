@@ -43,7 +43,7 @@
             this.cancelButton.TabIndex = 15;
             this.cancelButton.Text = "Отмена";
             this.cancelButton.UseVisualStyleBackColor = true;
-            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
+            this.cancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // okButton
             // 
@@ -55,7 +55,7 @@
             this.okButton.TabIndex = 14;
             this.okButton.Text = "ОК";
             this.okButton.UseVisualStyleBackColor = true;
-            this.okButton.Click += new System.EventHandler(this.okButton_Click);
+            this.okButton.Click += new System.EventHandler(this.OkButton_Click);
             // 
             // nameTextBox
             // 
@@ -63,7 +63,7 @@
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(100, 20);
             this.nameTextBox.TabIndex = 9;
-            this.nameTextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.nameTextBox.TextChanged += new System.EventHandler(this.anyTextBox_TextChanged);
             // 
             // nameLabel
             // 

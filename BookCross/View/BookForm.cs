@@ -49,18 +49,6 @@ namespace BookCross
             }
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            if ((authorTextBox.Text != "") && (nameTextBox.Text != "") && (yearTextBox.Text != ""))
-            {
-                okButton.Enabled = true;
-            }
-            else
-            {
-                okButton.Enabled = false;
-            }
-        }
-
         private void CancelButton_Click(object sender, EventArgs e)
         {
             Close();
@@ -70,6 +58,18 @@ namespace BookCross
         {
             presenter.Add();
             Close();
+        }
+
+        private void AnyTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if ((authorTextBox.Text != "") && (nameTextBox.Text != "") && (yearTextBox.Text != ""))
+            {
+                okButton.Enabled = true;
+            }
+            else
+            {
+                okButton.Enabled = false;
+            }
         }
     }
 }
