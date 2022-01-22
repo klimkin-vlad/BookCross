@@ -10,7 +10,7 @@ namespace BookCrossTest
         public void Add()
         {
             Place shelf = new Place();
-            shelf.Add(1, "СПбГМТУ корпус А", "СПбГМТУ корпус У");
+            shelf.Add("СПбГМТУ корпус А", "СПбГМТУ корпус У");
             Assert.AreEqual(shelf.GetDeparture(), "СПбГМТУ корпус А");
             Assert.AreEqual(shelf.GetArrival(), "СПбГМТУ корпус У");
         }
@@ -19,7 +19,7 @@ namespace BookCrossTest
         public void CompareSame()
         {
             Place shelf = new Place();
-            shelf.Add(1, "СПбГМТУ корпус А", "СПбГМТУ корпус У");
+            shelf.Add("СПбГМТУ корпус А", "СПбГМТУ корпус У");
             Assert.IsTrue(shelf.Compare(shelf));
         }
 
@@ -27,9 +27,9 @@ namespace BookCrossTest
         public void CompareNotArrival()
         {
             Place shelf = new Place();
-            shelf.Add(1, "СПбГМТУ корпус А", "СПбГМТУ корпус У");
+            shelf.Add("СПбГМТУ корпус А", "СПбГМТУ корпус У");
             Place shelf1 = new Place();
-            shelf1.Add(2, "СПбГМТУ корпус А", "СПбГМТУ корпус Б");
+            shelf1.Add("СПбГМТУ корпус А", "СПбГМТУ корпус Б");
             Assert.IsFalse(shelf.Compare(shelf1));
         }
 
@@ -37,9 +37,9 @@ namespace BookCrossTest
         public void CompareNotDeparture()
         {
             Place shelf = new Place();
-            shelf.Add(1, "СПбГМТУ корпус А", "СПбГМТУ корпус У");
+            shelf.Add("СПбГМТУ корпус А", "СПбГМТУ корпус У");
             Place shelf1 = new Place();
-            shelf1.Add(2, "СПбГМТУ корпус Б", "СПбГМТУ корпус У");
+            shelf1.Add("СПбГМТУ корпус Б", "СПбГМТУ корпус У");
             Assert.IsFalse(shelf.Compare(shelf1));
         }
 
@@ -47,9 +47,9 @@ namespace BookCrossTest
         public void CompareNotSame()
         {
             Place shelf = new Place();
-            shelf.Add(1, "СПбГМТУ корпус А", "СПбГМТУ корпус У");
+            shelf.Add("СПбГМТУ корпус А", "СПбГМТУ корпус У");
             Place shelf1 = new Place();
-            shelf1.Add(2, "СПбГМТУ корпус Б", "СПбГМТУ корпус А");
+            shelf1.Add("СПбГМТУ корпус Б", "СПбГМТУ корпус А");
             Assert.IsFalse(shelf.Compare(shelf1));
         }
     }

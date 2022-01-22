@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace BookCross
@@ -16,7 +13,8 @@ namespace BookCross
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            MainPresenter main = new MainPresenter();
+            Application.Run(main.GetMainForm());
         }
     }
 }
